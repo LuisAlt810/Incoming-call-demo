@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Incoming Call</title>
+  <style>
+    body {
+      margin: 0; font-family: Roboto, sans-serif;
+      background: #000; color: white;
+      display: flex; justify-content: center; align-items: center;
+      height: 100vh;
+    }
+    .call-screen {
+      max-width: 400px; width: 100%;
+      background: linear-gradient(#111, #222);
+      padding: 40px 20px; border-radius: 20px;
+      text-align: center; box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    .caller-photo {
+      width: 120px; height: 120px;
+      background: #333 url('https://i.imgur.com/2zF8GbA.png') center/cover no-repeat;
+      border-radius: 50%; margin: 0 auto 20px;
+    }
+    .caller-name { font-size: 24px; font-weight: bold; }
+    .status { color: #aaa; margin: 10px 0 30px; }
+    .buttons {
+      display: flex; justify-content: center; gap: 40px;
+    }
+    .btn {
+      width: 60px; height: 60px; border-radius: 50%;
+      border: none; font-size: 24px; color: white; cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn.accept { background-color: #4caf50; }
+    .btn.decline { background-color: #f44336; }
+    .btn:active { transform: scale(0.9); }
+  </style>
+</head>
+<body>
+  <div class="call-screen" id="call">
+    <div class="caller-photo"></div>
+    <div class="caller-name">Loading...</div>
+    <div class="status">Please wait...</div>
+    <div class="buttons" style="display:none;">
+      <button class="btn decline" onclick="declineCall()">✖</button>
+      <button class="btn accept" onclick="acceptCall()">📞</button>
+    </div>
+  </div>
+
+  <audio id="ringtone" loop>
+    Your browser does not support audio.
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
